@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+# Gemfile
+gem 'devise'
+
 gem 'simple_form'
 
 # Heroku
