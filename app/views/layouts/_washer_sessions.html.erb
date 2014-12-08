@@ -1,0 +1,7 @@
+<% if washer_signed_in? %>
+  <%= current_washer.email %>
+  <%= link_to 'Sign out', destroy_washer_session_path, method: 'delete' %>
+<% else %>
+  <%= link_to 'Sign up', new_washer_registration_path %>
+  <%= link_to 'Sign in', new_washer_session_path %>
+<% end %>
