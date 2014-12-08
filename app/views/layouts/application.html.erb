@@ -13,9 +13,14 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
+
+  <h3>Authenticate User</h3>
   <%= render 'layouts/sessions' %>
 
   <%= yield %>
+
+  <h3>Autheticate Washer</h3>
+  <%= render 'layouts/washer_sessions' %>
 
 </body>
 </html>
