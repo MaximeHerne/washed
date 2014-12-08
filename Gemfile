@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
 
+# Gemfile
+gem 'devise'
+
+gem 'simple_form'
+
 # Heroku
 ruby '2.1.2'
 gem 'rails_12factor', group: :production
