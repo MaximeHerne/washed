@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:new, :create, :show, :index]
 
+  resources :users, only: [:show, :edit, :update]
+
 end
