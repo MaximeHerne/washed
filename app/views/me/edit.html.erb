@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4">
+
+      <h2>Edit your profile</h2>
+
+      <%= @current_customer.errors.full_messages %>
+
+
+      <%= simple_form_for(@current_customer, url: me_update_path, html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :first_name, required: true %>
+          <%= f.input :last_name, required: true %>
+          <%= f.input :phone, required: true %>
+          <%= f.input :address, required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Update" %>
+        </div>
+      <% end %>
+      <%= link_to 'Change Password', edit_user_registration_path %>
+
+      <%= link_to "Back", :back %>
+
+    </div>
+  </div>
+</div>

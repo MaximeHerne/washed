@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  namespace :me do
+    get :profile
+    get :edit
+    put :update
+    root to: :profile
+  end
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions"

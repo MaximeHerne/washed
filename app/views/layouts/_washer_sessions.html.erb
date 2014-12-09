@@ -2,6 +2,7 @@
   <%= current_washer.email %>
   <%= link_to 'Sign out', destroy_washer_session_path, method: 'delete' %>
 <% else %>
+  <h3>Washer Registration</h3>
   <%= link_to 'Sign up', new_washer_registration_path %>
   <%= link_to 'Sign in', new_washer_session_path %>
 <% end %>
