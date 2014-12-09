@@ -14,6 +14,11 @@
  *= require_self
  */
 
+// SCSS files installed with gems
   @import "bootstrap";
   @import "font-awesome-sprockets";
   @import "font-awesome";
+
+// My SCSS files
+  @import "footer";
+  @import "navbar";
