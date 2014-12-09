@@ -6,6 +6,9 @@ gem 'devise'
 
 gem 'simple_form'
 
+gem 'momentjs-rails'
+
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 # Heroku
 ruby '2.1.2'
 gem 'rails_12factor', group: :production
@@ -57,4 +60,6 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'figaro'
 
