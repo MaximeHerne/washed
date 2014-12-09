@@ -1,35 +1,27 @@
 <%= simple_form_for [@order] do |f| %>
   <div class="col-xs-12">
-    <%= f.input :formula, collection: 1..2 %>
+    <%= f.input :formula, collection: [["1: Without washer #{ENV['formula1_price']}€", 1], ["2: With options #{ENV['formula2_price']}€", 2]], input_html: {required: true} %>
   </div>
 
   <div class="col-xs-12">
-    <%= f.input :temperature, collection: [["30°"], ["40°"], ["50°"], ["60°"]] %>
+    <%= f.input :temperature, collection: [["30°", 30], ["40°", 40], ["50°", 50], ["60°", 60]], input_html: {required: true} %>
   </div>
 
   <div class="col-xs-12">
-    <%= f.input :pickup_start_date, as: :datetime_picker %>
+    <%= f.input :pickup_start_date, as: :date_picker, input_html: {autocomplete: :off, required: true} %>
+    <%= select_tag 'pickup_start_interval', options_for_select((8..20).map{ |i| ["#{i}h - #{i+1}h", "#{i}00-#{i+1}00"]}), prompt: 'Choose interval', required: true, class: "form-control" %>
   </div>
 
-  <div class="col-xs-12">
-    <%= f.input :pickup_end_date, as: :datetime_picker %>
-  </div>
 
   <div class="col-xs-12">
-    <%= f.input :delivery_start_date, as: :datetime_picker %>
+    <%= f.input :delivery_start_date, as: :date_picker, input_html: {autocomplete: :off, required: true} %>
+    <%= select_tag 'delivery_start_interval', options_for_select((8..20).map{ |i| ["#{i}h - #{i+1}h", "#{i}00-#{i+1}00"]}), prompt: 'Choose interval', required: true, class: "form-control" %>
   </div>
 
-  <div class="col-xs-12">
-    <%= f.input :delivery_end_date, as: :datetime_picker %>
-  </div>
 
   <div class="col-xs-12">
     <br>
     <%= f.button :submit, class: "btn btn-primary" %>
-  </div>
-
-  <div class="col-xs-12">
-    <%= f.input :price, collection: 0..5 %>
   </div>
 
 <% end %>

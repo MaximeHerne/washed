@@ -11,10 +11,13 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.user = current_user
+    @order.set_interval(params[:pickup_start_interval], params[:delivery_start_interval])
+    @order.set_price
     if @order.save
       redirect_to order_path(@order)
     else
-      render :new
+      puts @order.errors.to_yaml
+      render :new, alert: @order.errors.full_messages
     end
   end
 
@@ -26,7 +29,7 @@ class OrdersController < ApplicationController
 private
 
   def order_params
-    params.require(:order).permit(:formula, :temperature, :price, :pickup_start_date, :pickup_end_date, :delivery_start_date, :delivery_end_date)
+    params.require(:order).permit(:formula, :temperature, :pickup_start_date, :delivery_start_date)
   end
 
 
