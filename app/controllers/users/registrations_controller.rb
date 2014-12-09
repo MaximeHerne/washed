@@ -8,11 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password) }
   end
 
-  # def after_sign_up_path_for(user)
-  #   user_path(user)
-  # end
-
-  # def after_sign_in_path_for(user)
-  #   user_path(user)
-  # end
+  def after_sign_up_path_for(user)
+     me_edit_path(user)
+  end
 end
