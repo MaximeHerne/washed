@@ -1,0 +1,39 @@
+<%= simple_form_for [@order] do |f| %>
+  <div class="col-xs-12">
+    <%= f.input :formula, collection: 1..2 %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.input :temperature, collection: [["30°"], ["40°"], ["50°"], ["60°"]] %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.input :pickup_start_date, as: :datetime_picker %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.input :pickup_end_date, as: :datetime_picker %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.input :delivery_start_date, as: :datetime_picker %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.input :delivery_end_date, as: :datetime_picker %>
+  </div>
+
+  <div class="col-xs-12">
+    <br>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+
+  <div class="col-xs-12">
+    <%= f.input :price, collection: 0..5 %>
+  </div>
+
+<% end %>
+
+
+
+
