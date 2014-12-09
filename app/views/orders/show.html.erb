@@ -1,1 +1,10 @@
-<h1>Show Order</h1>
+<h3>Les caractéristiques de votre commandes sont les suivantes : </h3>
+
+<ul>
+
+  <li><p> Vous avez choisie la formule n° <%= @order.formula %></p></li>
+  <li><p> La température choisie : <%= @order.temperature %> °</p></li>
+  <li><p> Nous récupérons votre linge le : <%= @order.pickup_start_date.strftime('%d/%m/%y') %> entre <%= @order.pickup_start_date.strftime('%Hh%M') %> et <%= @order.pickup_end_date.strftime('%Hh%M') %> </p></li>
+   <li><p> Nous vous livrons votre linge le : <%= @order.delivery_start_date.strftime('%d/%m/%y') %> entre <%= @order.delivery_start_date.strftime('%Hh%M') %> et <%= @order.delivery_end_date.strftime('%Hh%M') %> </p></li>
+
+</ul>
