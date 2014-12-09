@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
 
-      <h2>Edit your profile</h2>
+      <h2>Edit YOUR profile</h2>
 
       <%= @current_customer.errors.full_messages %>
 
@@ -15,7 +15,12 @@
           <%= f.input :first_name, required: true %>
           <%= f.input :last_name, required: true %>
           <%= f.input :phone, required: true %>
-          <%= f.input :address, required: true %>
+          <%= f.input :address, input_html: {id: "user_input_autocomplete_address"}, required: true %>
+          <%= f.input :street_number, input_html: {id: "street_number"}, disabled: true %>
+          <%= f.input :route, input_html: {id: "route"}, disabled: true %>
+          <%= f.input :locality, input_html: {id: "locality"}, disabled: true %>
+          <%= f.input :administrative_area_level_1, input_html: {id: "administrative_area_level_1"}, disabled: true %>
+          <%= f.input :postal_code, input_html: {id: "postal_code"}, disabled: true %>
         </div>
 
         <div class="form-actions">
@@ -29,3 +34,10 @@
     </div>
   </div>
 </div>
+
+<!-- Include Google Maps JS API -->
+   <script type="text/javascript"
+           src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyCT0Lsy-Z3RTHlY-WBvpEdseSRrMzydUOI"></script>
+
+   <!-- Custom JS code to bind to Autocomplete API -->
+   <%= javascript_include_tag 'autocomplete' %>

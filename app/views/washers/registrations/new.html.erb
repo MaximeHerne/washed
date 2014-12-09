@@ -11,10 +11,13 @@
           <%= f.input :first_name, required: true, autofocus: true %>
           <%= f.input :last_name, required: true %>
           <%= f.input :phone, required: true %>
-
-          <%= f.input :address, required: true %>
-
           <%= f.input :email, required: true %>
+          <%= f.input :address, input_html: {id: "user_input_autocomplete_address"}, required: true %>
+          <%= f.input :street_number, input_html: {id: "street_number"}, disabled: true %>
+          <%= f.input :route, input_html: {id: "route"}, disabled: true %>
+          <%= f.input :locality, input_html: {id: "locality"}, disabled: true %>
+          <%= f.input :administrative_area_level_1, input_html: {id: "administrative_area_level_1"}, disabled: true %>
+          <%= f.input :postal_code, input_html: {id: "postal_code"}, disabled: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
           <%= f.input :password_confirmation, required: true %>
         </div>
@@ -29,3 +32,11 @@
     </div>
   </div>
 </div>
+
+
+<!-- Include Google Maps JS API -->
+   <script type="text/javascript"
+           src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyCT0Lsy-Z3RTHlY-WBvpEdseSRrMzydUOI"></script>
+
+   <!-- Custom JS code to bind to Autocomplete API -->
+   <%= javascript_include_tag 'autocomplete' %>
